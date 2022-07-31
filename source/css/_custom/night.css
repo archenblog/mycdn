@@ -10,6 +10,11 @@
     }
 
 [data-theme="dark"]
+#page,#archive {
+      background: rgba(0, 0, 0, 0.5)!important;
+    }
+
+[data-theme="dark"]
   div#post{
     background: rgba(0, 0, 0, 0.5)!important;
     }
