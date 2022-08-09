@@ -97,3 +97,24 @@ i:hover{
 .justified-gallery > figure > a > svg{
   position:static!important;
 }
+
+[data-theme="dark"]
+  #aside-content .card-widget, #bber-talk, #container, #post .post-copyright, #sta_chart, #statistic, .cardHover, .error404 #error-wrap .error-content, .layout>div:first-child:not(.recent-posts), .search-dialog {
+    border-radius: 12px;
+    box-shadow: 0 8px 15px -5px #2c2d300c!important;
+    border: 2px rgba(230,230,230,.8) solid;
+    box-sizing: border-box;
+    transition: all .3s ease-in-out;
+  }
+
+[data-theme="dark"]
+  #aside-content .card-widget:hover, #bber-talk:hover, #container, #post .post-copyright:hover, #sta_chart, #statistic, .cardHover:hover, .error404 #error-wrap .error-content:hover, .layout>div:first-child:not(.recent-posts):hover, .search-dialog {
+    border-color: var(--leonus-blue);
+  }
+
+:root {
+  --blockquote-color: #333;
+  --card-bg: rgba(255, 255, 255, .8);
+  --leonus-black: #333;
+  --leonus-blue: #49b1f5;
+}
