@@ -1,4 +1,5 @@
 let rm = {};
+
 rm.showRightMenu = function (isTrue, x = 0, y = 0) {
     let $rightMenu = $('#rightMenu');
     $rightMenu.css('top', x + 'px').css('left', y + 'px');
@@ -16,6 +17,8 @@ rm.reloadrmSize = function () {
     rmWidth = $("#rightMenu").width();
     rmHeight = $("#rightMenu").height()
 };
+
+
 window.oncontextmenu = function (event) {
     if (document.body.clientWidth > 768) {
         let pageX = event.clientX + 10;	
@@ -23,8 +26,15 @@ window.oncontextmenu = function (event) {
         let $rightMenuNormal = $(".rightMenuNormal");
         let $rightMenuOther = $(".rightMenuOther");
         let $rightMenuReadmode = $("#menu-readmode");
+        let $rightMenuTxt = $(".rightMenuTxt")
         $rightMenuNormal.show();
         $rightMenuOther.show();
+        $rightMenuTxt.hide();
+        if(document.getSelection().toString()){
+            $rightMenuTxt.show();
+        }
+
+        
         rm.reloadrmSize();
         if (pageX + rmWidth > window.innerWidth) {
             pageX -= rmWidth;
@@ -35,6 +45,10 @@ window.oncontextmenu = function (event) {
         rm.showRightMenu(true, pageY, pageX);
         $('#rightmenu-mask').attr('style', 'display: flex');
         return false;
+    }
+    $('.rightMenu-group.hide').hide();
+    if(document.getSelection().toString()){
+        $('#menu-text').show();
     }
 };
 function removeRightMenu() {
@@ -55,6 +69,8 @@ function stopMaskScroll() {
         }, false);
     }
 }
+
+
 /**
  * @name:  切換模式
  */
@@ -169,31 +185,35 @@ function translateInitialization() {
         translateButtonObject.addEventListener('click', translatePage, false);
     }
 }
-
 $('#menu-backward').on('click', function () { window.history.back(); });
 $('#menu-forward').on('click', function () { window.history.forward(); });
 $('#menu-refresh').on('click', function () { window.location.reload(); });
 $('#menu-darkmode').on('click', function () { switchDarkMode() });
+$('#menu-copy').on('click', function () { 
+    rm.copySelect = function(){
+        document.execCommand('Copy',false,null);
+        //这里可以写点东西提示一下 已复制
+    }
+    // document.execCommand('Copy',false,null);
+    // console.log("复制成功")
+});
 $('#menu-home').on('click', function () { window.location.href = window.location.origin; });
 /* 简体繁体切换 */
 $('#menu-translate').on('click', function () {
     removeRightMenu();
     translateInitialization();
 });
+// //复制选中文字
+// rm.copySelect = function(){
+//     document.execCommand('Copy',false,null);
+//     //这里可以写点东西提示一下 已复制
+// };
 $(".menu-link").on("click", function () {
     removeRightMenu()
 });
-$("#menu-print").on("click", function () {
-    removeRightMenu();
-    window.print();
-});
-// $("#menu-copy").on("click", function () {
-//     removeRightMenu();
-//     window.print();
-// });
-
 $("#rightmenu-mask").on("click", function () { removeRightMenu() });
 $("#rightmenu-mask").contextmenu(function () {
     removeRightMenu();
     return false;
 });
+window.addEventListener('click',function(){rm.showRightMenu(false);});

@@ -10,7 +10,7 @@
     }
 
 [data-theme="dark"]
-#page,#archive {
+#page, div#archive {
       background: rgba(0, 0, 0, 0.5)!important;
     }
 
