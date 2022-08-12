@@ -1,0 +1,56 @@
+:root {
+    --heo-white: #fff;
+    --heo-white-op: rgba(255,255,255,0.2);
+    --heo-black: #000;
+    --heo-black-op: rgba(0,0,0,0.2);
+    --heo-none: #00000000;
+    --heo-gray: #999999;
+    --heo-vip: #e5a80d;
+    --heo-main: var(--heo-theme);
+    --heo-main-op: var(--heo-theme-op);
+    --heo-shadow-theme: 0 8px 12px -3px var(--heo-theme-op);
+    --heo-shadow-main: 0 8px 12px -3px var(--heo-main-op);
+    --heo-shadow-blue: 0 8px 12px -3px rgba(40, 109, 234,.20);
+    --heo-shadow-white: 0 8px 12px -3px rgba(255, 255, 255,.20);
+    --heo-shadow-black: 0 0 12px 4px rgba(0, 0, 0,.05);
+    --heo-shadow-yellow: 0px 38px 77px -26px rgba(255, 201, 62,.12);
+    --heo-shadow-red: 0 8px 12px -3px #ee7d7936;
+    --heo-shadow-green: 0 8px 12px -3px #87ee7936;
+    --heo-logo-color: linear-gradient(215deg,#4584ff 0%,#cf0db9 100%);
+    --heo-snackbar-time: 5s;
+    --style-border: 1px solid var(--heo-card-border);
+    --style-border-always: 1px solid var(--heo-card-border);
+    --style-border-hover: 1px solid var(--heo-main);
+    --style-border-hover-always: 1px solid var(--heo-main);
+    --style-border-dashed: 1px dashed var(--heo-theme-op);
+}
+
+.post .layout#content-inner {
+    max-width: 1500px;
+}
+
+/* .page {
+    max-width: 1300px;
+} */
+
+.post #aside-content {
+    width: 26%;
+    margin-top: -16px;
+}
+
+.el-textarea__inner {
+    min-height: 117px !important;
+}
+.layout.hide-aside > div {
+    width: 100% !important;
+}
+
+/* .flink-list > a {
+    width: calc(25% - 15px);
+    height: 200px !important;
+} */
+
+/* .flink-list > a .wrapper img {
+    min-height: 200px !important;
+    pointer-events: none;
+} */
